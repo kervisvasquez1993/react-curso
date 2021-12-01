@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const CounterApp = ({ value }) => {
-const saludar = (e)  => { console.log(e)}
+
+
+  const saludar = (e)  => { console.log(e)}
 
     return (
         <>
