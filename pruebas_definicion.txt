@@ -1,0 +1,35 @@
+Unitarias : Enfocado en pequeñas funcionalidades.
+integraciones : Enfocado en como eaccionan varias piezas en conjunto.
+
+caracteristicas : 
+- Faciles de escribir
+- Faciles de leer 
+- Confiable 
+- Rapidas 
+- Principal unitaria 
+
+
+AAA 
+- A (Arreglar )
+- Act (Actuar)
+- Assert (Afirmar)
+
+
+Arrange - Arreglar
+-Preparamos el estado a inicar 
+    -- inicializamos variables 
+    -- importaciones necesarias 
+
+art - Actuar
+ -aplicamos acciones o estimulos
+  -- llamar metodos 
+  -- simular clicks
+  -- realizar acciones sobre el paso anteriros
+
+
+assert - afirmaciones
+
+Observar el comportamiento resultante
+
+-- son los resultados esperados 
+-- que algo cambie, algo incremente o bien que nada suceda
