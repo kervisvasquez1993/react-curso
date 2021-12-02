@@ -6,4 +6,4 @@ import './index.css'
 
 const divRoot = document.querySelector('#root')
 // ReactDOM.render(<PrimeraApp saludos={"hola mundo"}  hola={123} />,divRoot);
-ReactDOM.render(<CounterApp value = {12344}/>,divRoot);
+ReactDOM.render(<CounterApp value = {1000}/>,divRoot);
