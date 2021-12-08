@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {GifGridItem} from "./GifGridItem";
+import { GifGridItem } from "./GifGridItem";
 
 const GifGrid = ({ category }) => {
     const [images, setImages] = useState([]);
@@ -7,8 +7,7 @@ const GifGrid = ({ category }) => {
         getGifs();
     }, []);
     const getGifs = async () => {
-        const url =
-            "https://api.giphy.com/v1/gifs/search?api_key=RCdtf91rKTM96WoidRUsU2OP1XMkVyoW&q=goku&limit=10";
+        const url =`https://api.giphy.com/v1/gifs/search?api_key=RCdtf91rKTM96WoidRUsU2OP1XMkVyoW&q=${encodeURI(category)}&limit=10`;
         const resp = await fetch(url);
         const { data } = await resp.json();
         const gifs = data.map((img) => {
@@ -26,23 +25,20 @@ const GifGrid = ({ category }) => {
     return (
         <>
             <h3>{category}</h3>
-            
-                {/* {images.map((img) => (
+            <div className="card-grid">
+                {
+                    /* {images.map((img) => (
                     <li key={img.id}>{img.title}</li>
                 ))} */
-                // images.map(({id, title}) => (
-                //     <li key={id}>{title}</li>
-                // ))
+                    // images.map(({id, title}) => (
+                    //     <li key={id}>{title}</li>
+                    // ))
 
-                images.map((img) => (
-                    <GifGridItem 
-                    key={img.id}
-                    { ...img }/>
-                ))
-                
-
+                    images.map((img) => (
+                        <GifGridItem key={img.id} {...img} />
+                    ))
                 }
-            
+            </div>
         </>
     );
 };

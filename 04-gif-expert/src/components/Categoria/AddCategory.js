@@ -10,7 +10,7 @@ const AddCategory = ({ setCategorias }) => {
         e.preventDefault();
         // setCategorias(cats  =>  [...cats, inputValue])
          if (inputValue.trim().length > 2) {
-             setCategorias((cats) => [...cats, inputValue]);
+             setCategorias((cats) => [inputValue, ...cats]);
              setInputValue('');
              console.log("enviado");
          }
