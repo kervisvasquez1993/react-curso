@@ -1,22 +1,20 @@
-test('debe de ser debe de ser iguales los string', () => {
-    // const isActive = false;
+describe("deben de ser iguales los string", () => {
+    test("debe de ser debe de ser iguales los string", () => {
+        // const isActive = false;
 
-    // if(!isActive){
-    //     throw new Error('no esta activo')
-    // }
+        // if(!isActive){
+        //     throw new Error('no esta activo')
+        // }
 
-    // inicializacion
-    const mensaje = 'hola mundo';
+        // inicializacion
+        const mensaje = "hola mundo";
 
-    // estimulo 
+        // estimulo
 
-    const mesnaje2 = `hola mundo!`
+        const mesnaje2 = `hola mundo`;
 
-    //observar el comportamiento
+        //observar el comportamiento
 
-
-    expect(mensaje).toBe(mesnaje2);
-
-
-
-})
+        expect(mensaje).toBe(mesnaje2);
+    });
+});
