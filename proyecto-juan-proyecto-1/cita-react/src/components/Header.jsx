@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
 
- const Header = () => {
+const Header = () => {
     return (
-        <>
-            <h1>desde header</h1>
-        </>
-    )
-}
+        <h1 className="font-black text-5xl text-center md:w-1/2 mx-auto">
+            Seguimiento Paciente{" "}
+            <span className="text-indigo-600">REDVITAL</span>
+        </h1>
+    );
+};
 
-export default Header
+export default Header;
