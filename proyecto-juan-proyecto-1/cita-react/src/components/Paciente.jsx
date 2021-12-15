@@ -1,30 +1,30 @@
 import React from "react";
 
-export const Paciente = () => {
+export const Paciente = ({paciente}) => {
+
+    const {nombre, propietario, email,fecha, sintomas} = paciente;
     return (
         <div className="m-5 bg-white shadow-md px-5 py-10 rounded-xl">
             <p className="font-bold mb-3 text-grey-700 uppercase">
-                Nombre : <span className="font-normal normal-case">Hook</span>
+                Nombre : <span className="font-normal normal-case">{nombre}</span>
             </p>
 
             <p className="font-bold mb-3 text-grey-700 uppercase">
-                Nombre :{" "}
-                <span className="font-normal normal-case">kervis vasquez</span>
+                Propietario :{" "}
+                <span className="font-normal normal-case">{propietario}</span>
             </p>
             <p className="font-bold mb-3 text-grey-700 uppercase">
                 email :{" "}
-                <span className="font-normal normal-case">email@gmail.com</span>
+                <span className="font-normal normal-case">{email}</span>
             </p>
             <p className="font-bold mb-3 text-grey-700 uppercase">
                 Fecha :{" "}
-                <span className="font-normal normal-case">13-10-2021</span>
+                <span className="font-normal normal-case">{fecha}</span>
             </p>
             <p className="font-bold mb-3 text-grey-700 uppercase">
                 Sintomas :{" "}
                 <span className="font-normal normal-case">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Eius optio, voluptas sequi architecto facere accusamus
-                    pariatur praesentium quia laborum eum?
+                   {sintomas}
                 </span>
             </p>
         </div>

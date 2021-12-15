@@ -1,14 +1,20 @@
 import React, { useState, useEfect } from "react";
 import { Mensaje } from "./Mensaje";
 
-export const Formulario = () => {
+export const Formulario = ({paciente, setPaciente}) => {
     const [nombre, setNombre] = useState("");
     const [propietario, setPropietario] = useState("");
     const [email, setEmail] = useState("");
     const [fecha, setFecha] = useState("");
     const [sintomas, setSintomas] = useState("");
     const [error, setError] = useState(false);
+    const gernerarId = () => {
 
+        const ramdom = Math.random().toString(36).substr(2);
+        const fecha = Date.now().toString(36);
+
+        return ramdom + fecha;
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         // validacion del formulario
@@ -20,6 +26,24 @@ export const Formulario = () => {
             return;
         }
         setError(false);
+        // objeto de paciente 
+
+        const objetoPaciente = {
+            nombre,
+            propietario,
+            email,
+            fecha,
+            sintomas,
+        }
+
+        setPaciente([...paciente, objetoPaciente]);
+        // riniciar el form 
+        setNombre('')
+        setPropietario('')
+        setFecha('')
+        setEmail('')
+        setSintomas('')
+
     };
 
     return (
@@ -39,7 +63,7 @@ export const Formulario = () => {
                 onSubmit={handleSubmit}
                 className="bg-white my-5 shadow-md rounded-lg py-10 px-5"
             >
-                {error && <Mensaje />}
+                {error && <Mensaje mensaje={'Todos los mensaje son Obligatorios'}/>}
                 <div className="mb-5">
                     <label
                         className="block  text-grey-700 uppercase font-bold"
