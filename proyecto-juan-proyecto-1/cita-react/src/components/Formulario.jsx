@@ -1,23 +1,29 @@
-import React, { useState, useEfect } from "react";
+import React, { useState, useEffect } from "react";
 import { Mensaje } from "./Mensaje";
 
-export const Formulario = ({ paciente, setPacientes }) => {
+export const Formulario = ({ pacientes, setPacientes, paciente }) => {
     const [nombre, setNombre] = useState("");
     const [propietario, setPropietario] = useState("");
     const [email, setEmail] = useState("");
     const [fecha, setFecha] = useState("");
     const [sintomas, setSintomas] = useState("");
     const [error, setError] = useState(false);
+    useEffect(() => {
+    console.log('cambio el nombre' + nombre)
+},[
+    paciente
+])
+
     const gernerarId = () => {
         const ramdom = Math.random().toString(36).substr(2);
         const fecha = Date.now().toString(36);
-
         return ramdom + fecha;
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // validacion del formulario
-        if (
+        if ( 
             [nombre, propietario, email, fecha, setFecha, sintomas].includes("")
         ) {
             console.log("campo vacio ");
@@ -36,7 +42,7 @@ export const Formulario = ({ paciente, setPacientes }) => {
             id: gernerarId(),
         };
 
-        setPacientes([...paciente, objetoPaciente]);
+        setPacientes([...pacientes, objetoPaciente]);
         // riniciar el form
         setNombre("");
         setPropietario("");

@@ -3,7 +3,7 @@ import React from "react";
 export const Paciente = ({ paciente, setPaciente }) => {
     const { nombre, propietario, email, fecha, sintomas } = paciente;
 
-    console.log(setPaciente)
+    
     return (
         <div className="m-5 bg-white shadow-md px-5 py-10 rounded-xl">
             <p className="font-bold mb-3 text-grey-700 uppercase">
@@ -30,6 +30,7 @@ export const Paciente = ({ paciente, setPaciente }) => {
                 <button
                     className="py-2 px-10 bg-indigo-600 hover:bg-indigo-700 font-bold uppercase rounded-lg"
                     type="button"
+                    onClick={() => setPaciente(paciente) }
                 >
                     Editar
                 </button>
