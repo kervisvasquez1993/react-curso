@@ -8,9 +8,14 @@ export const Formulario = ({ pacientes, setPacientes, paciente }) => {
     const [fecha, setFecha] = useState("");
     const [sintomas, setSintomas] = useState("");
     const [error, setError] = useState(false);
-    // useEffect(() => {
-    //     console.log(paciente);
-    // }, [paciente]);
+    useEffect(() => {
+        if(Object.keys(paciente).length > 0 ){
+            console.log(paciente)
+        }
+        else{
+            console.log('no hay nada')
+        }
+    }, [paciente]);
 
     const gernerarId = () => {
         const ramdom = Math.random().toString(36).substr(2);
