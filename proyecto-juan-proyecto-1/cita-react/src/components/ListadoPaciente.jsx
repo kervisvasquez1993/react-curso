@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { Paciente } from "./Paciente";
 export const ListadoPaciente = ({ pacientes, setPaciente }) => {
     // pacientes.map(p => {
     //     console.log(p)
     // })
+    // console.log(setPaciente)
 
     return (
         <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">

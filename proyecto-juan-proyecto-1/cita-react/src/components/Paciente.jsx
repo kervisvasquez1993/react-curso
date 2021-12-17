@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 export const Paciente = ({ paciente, setPaciente }) => {
     const { nombre, propietario, email, fecha, sintomas } = paciente;
 
+    useEffect(() => {console.log('Agregaste a ' + paciente.nombre)}, [setPaciente])
     
     return (
         <div className="m-5 bg-white shadow-md px-5 py-10 rounded-xl">

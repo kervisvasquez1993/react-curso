@@ -8,11 +8,9 @@ export const Formulario = ({ pacientes, setPacientes, paciente }) => {
     const [fecha, setFecha] = useState("");
     const [sintomas, setSintomas] = useState("");
     const [error, setError] = useState(false);
-    useEffect(() => {
-    console.log('cambio el nombre' + nombre)
-},[
-    paciente
-])
+    // useEffect(() => {
+    //     console.log(paciente);
+    // }, [paciente]);
 
     const gernerarId = () => {
         const ramdom = Math.random().toString(36).substr(2);
@@ -23,7 +21,7 @@ export const Formulario = ({ pacientes, setPacientes, paciente }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // validacion del formulario
-        if ( 
+        if (
             [nombre, propietario, email, fecha, setFecha, sintomas].includes("")
         ) {
             console.log("campo vacio ");
