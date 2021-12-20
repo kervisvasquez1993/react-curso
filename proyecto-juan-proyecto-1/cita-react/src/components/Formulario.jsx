@@ -9,11 +9,16 @@ export const Formulario = ({ pacientes, setPacientes, paciente }) => {
     const [sintomas, setSintomas] = useState("");
     const [error, setError] = useState(false);
     useEffect(() => {
-        if(Object.keys(paciente).length > 0 ){
-            console.log(paciente)
-        }
-        else{
-            console.log('no hay nada')
+        if (Object.keys(paciente).length > 0) {
+            console.log(paciente);
+            setNombre(paciente.nombre);
+            setPropietario(paciente.propietario);
+            setEmail(paciente.email);
+            setFecha(paciente.fecha);
+            setSintomas(paciente.sintomas);
+
+        } else {
+            console.log("no hay nada");
         }
     }, [paciente]);
 
@@ -170,7 +175,7 @@ export const Formulario = ({ pacientes, setPacientes, paciente }) => {
                     transition-all
                     text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer"
                     type="submit"
-                    value="agregar Apaciente"
+                    value={paciente.id ? "Actualizar registro" : "Crear Nuevo registro"}
                 />
             </form>
         </div>
