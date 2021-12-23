@@ -1,9 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export const Mensaje = () => {
+    const [cords, setCords] = useState({
+        x: 0,
+        y: 0,
+    });
+
+    const {x , y} = cords;
     useEffect(() => {
         const mouseMove = (e) => {
-            console.log(":D");
+            const cords = {x : e.x , y : e.y}
+            setCords(cords)
         };
         // window.addEventListener('mouseover', ({x,y}) => {
         //     console.log("x :" + x +" y:" + y)
@@ -16,7 +23,7 @@ export const Mensaje = () => {
     }, []);
     return (
         <>
-            <h3>Esto es una nombre</h3>
+            <h3>cordenadas : {`x:${x} , y:${y}`} </h3>
         </>
     );
 };
