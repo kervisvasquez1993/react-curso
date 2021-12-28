@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 // import {CounterWithCustomHook} from './components/useState/CounterWithCustomHook'
-import { SimpleForm } from './components/useEffect/SimpleForm';
+// import { FormWithCustomHook } from './components/useEffect/FormWithCustomHook';
+import {MultipleCustomHook} from "./components/example/MultipleCustomHook";
 ReactDOM.render(
-  <React.StrictMode>
-      {/* <CounterWithCustomHook/> */}
-      <SimpleForm/>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        {/* <CounterWithCustomHook/> */}
+        <MultipleCustomHook />
+    </React.StrictMode>,
+    document.getElementById("root")
 );
