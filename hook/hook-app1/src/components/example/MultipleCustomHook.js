@@ -31,10 +31,11 @@ export const MultipleCustomHook = () => {
                         className="btn btn-primary m-3"
                         onClick={decrementar}
                     >
-                        anterior
+                        ANTERIROR
                     </button>
+                    <p>posicion : {counter}</p>
                     <button className="btn btn-primary m-3" onClick={increment}>
-                        {counter}
+                        SIGUIENTE
                     </button>
                 </div>
             )}
