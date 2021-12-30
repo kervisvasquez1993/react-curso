@@ -30,7 +30,7 @@ export const useFetch = (url) => {
                     }
 
                     
-                }, 2000);
+                }, 2);
             });
     }, [url]);
 

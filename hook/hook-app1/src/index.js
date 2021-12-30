@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 // import {CounterWithCustomHook} from './components/useState/CounterWithCustomHook'
 // import { FormWithCustomHook } from './components/useEffect/FormWithCustomHook';
-import {RealExampleREf} from "./components/04-useRef/RealExampleREf";
+import {LayoutEffetc} from "./components/05-layout-effect/LayoutEffetc";
 ReactDOM.render(
     <React.StrictMode>
         {/* <CounterWithCustomHook/> */}
-        <RealExampleREf />
+        <LayoutEffetc />
     </React.StrictMode>,
     document.getElementById("root")
 );
