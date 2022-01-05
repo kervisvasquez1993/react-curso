@@ -28,7 +28,9 @@ export const useFetch = (url) => {
                     } else {
                         console.log("no se llamo el setState");
                     }
-                }, 3000);
+
+                    
+                }, 2);
             });
     }, [url]);
 
