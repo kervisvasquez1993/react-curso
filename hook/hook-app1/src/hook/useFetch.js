@@ -11,8 +11,8 @@ export const useFetch = (url) => {
     useEffect(() => {
         return () => {
             isMounted.current = false;
-        }
-    },[]);
+        };
+    }, []);
     useEffect(() => {
         setState({ data: null, loading: true, error: null });
         fetch(url)
@@ -28,9 +28,7 @@ export const useFetch = (url) => {
                     } else {
                         console.log("no se llamo el setState");
                     }
-
-                    
-                }, 2000);
+                }, 3000);
             });
     }, [url]);
 

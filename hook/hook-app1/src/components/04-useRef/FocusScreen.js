@@ -4,7 +4,7 @@ import "../useEffect/effect.css";
 export const FocusScreen = () => {
     const inputRef = useRef();
     const handleClick = () => {
-        inputRef.current.select();
+        inputRef.current.focus();
         console.log(inputRef)
     } 
     return (
