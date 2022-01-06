@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { CallbackHook } from "./components/06-memo/CallbackHook";
+
+// import { CallbackHook } from "./components/06-memo/CallbackHook";
+import {Padre} from "./components/07-tarea-memo/Padre"
 // import { MemoHook } from "./components/06-memo/MemoHook";
 // import {CounterWithCustomHook} from './components/useState/CounterWithCustomHook'
 // import { FormWithCustomHook } from './components/useEffect/FormWithCustomHook';
@@ -10,7 +12,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <CounterWithCustomHook/> */}
 
-    <CallbackHook />
+    <Padre/>
   </React.StrictMode>,
   document.getElementById("root")
 );
