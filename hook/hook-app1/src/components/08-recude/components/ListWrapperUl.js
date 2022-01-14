@@ -7,7 +7,7 @@ export const ListWrapperUl = ({ todos, handleToggle, handleDelete }) => {
             {todos.map((todo, indice) =>
             (
                 /* li */
-                <ListLi todo={todo} indice={indice} handleToggle={handleToggle} handleDelete={handleDelete} />
+                <ListLi key={todo.id} todo={todo} indice={indice} handleToggle={handleToggle} handleDelete={handleDelete} />
 
             ))}
         </ul>
