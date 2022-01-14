@@ -1,29 +1,33 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import { todoReduce } from "./todoReduce";
+import { ListWrapperUl } from "./components/ListWrapperUl";
 import "./style.css";
 import { useForm } from "../../hook/useForm";
 
 export const TodoApp = () => {
-    const initialState = [
-        {
-            id: new Date().getTime(),
-            desc: "aprender react",
-            done: false,
-        },
-    ];
+    const init = () => {
+        // return [
+        //     {
+        //         id: new Date().getTime(),
+        //         desc: "aprender react",
+        //         done: false,
+        //     },
+        // ]
 
-    const [todos, dispatch] = useReducer(todoReduce, initialState);
-    const [{
-        description
-    }, handleInputChange, reset] = useForm({
-        description: ''
-    })
+        return JSON.parse(localStorage.getItem('todos')) || [];
+    };
 
-    // console.log(description)
-    // console.log(todos);
+    const [todos, dispatch] = useReducer(todoReduce, [], init);
+    // usando hook para el formulario
+    const [{ description }, handleInputChange, reset] = useForm({ description: '' })
+
+    // logica para guardar cambios en todos
+    useEffect(() => { localStorage.setItem('todos', JSON.stringify(todos)) }, [todos])
+    // funcion para agregar todo
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(description.trim().length <= 1){
+        if (description.trim().length <= 1) {
             console.log('hola')
             return;
         }
@@ -41,25 +45,35 @@ export const TodoApp = () => {
         dispatch(agregar)
         reset()
     }
+
+    // function para eliminar todo
+
+    const handleDelete = (todoId) => {
+        console.log(todoId)
+
+        const eliminar = {
+            type: 'delete',
+            payload: todoId
+        }
+
+        dispatch(eliminar)
+
+    }
+
+    const handleToggle = (todoId) => {
+        dispatch({
+            type: 'toggle',
+            payload: todoId
+        })
+    }
     return (
         <div>
             <h1>Todo App ({todos.length})</h1>
             <hr />
             <div className="row">
                 <div className="col-7">
-                    <ul className="list-group list-group-flush">
-                        {todos.map((todo, i) =>
-                        (
-                            <li key={todo.id}
-                                className="list-group-item"
-                            >
-                                <p className="text-center ">{i + 1}:{todo.desc} </p>
-
-                                <button className="btn btn-danger"> borrar</button>
-                            </li>
-
-                        ))}
-                    </ul>
+                   {/* ul */}
+                   <ListWrapperUl todos={todos} handleToggle={handleToggle} handleDelete={handleDelete}/>
                 </div>
                 <div className="col-5">
                     <h4 className=""> Agregar TODO</h4>
