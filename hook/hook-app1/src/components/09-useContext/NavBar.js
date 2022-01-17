@@ -23,9 +23,9 @@ export const NavBar = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     
-                        <NavLink  exact activeClassName="active"className="nav-item" to="/">Home</NavLink>                   
-                        <NavLink  exact activeClassName="active"className="nav-nav-item" to="/login">Login</NavLink>                    
-                        <NavLink  exact activeClassName="active"className="nav-item " to="/about">About</NavLink>
+                        <NavLink  exact activeClassName="active"className="nav-item p-2" to="/">Home</NavLink>                   
+                        <NavLink  exact activeClassName="active"className="nav-item p-2" to="/login">Login</NavLink>                    
+                        <NavLink  exact activeClassName="active"className="nav-item p-2" to="/about">About</NavLink>
                     
 
                 </ul>
