@@ -4,12 +4,13 @@ import { DcScreen } from '../components/dc/DcScreen';
 import { LoginScreen } from '../components/login/LoginScreen';
 import { MarvelScreen } from "../components/marvel/MarvelScreen"
 import { SearchScreen } from '../components/search/SearchScreen';
+import { Navbar } from '../Navbar';
 
 
 export const AppRouter = () => {
     return (
         <BrowserRouter>
-            <h1>welcome to router in reaact</h1>
+            <Navbar/>
             <Routes>
                 <Route path="/marvel" element={<MarvelScreen />} />
                 <Route path="/dc" element={<DcScreen />} />
