@@ -1,11 +1,17 @@
-import React from 'react'
+import { useParams, Navigate } from "react-router-dom";
+import { getHeroById } from "../../helpers/getHeroById";
 
 export const HeroScreen = () => {
-    return (
-        <div>
-            <h1>hola desde hero</h1>
+  const { heroId } = useParams();
 
-            
-        </div>
-    )
-}
+  const hero = getHeroById(heroId);
+
+  if (!hero) {
+    return <Navigate to="/error" />;
+  }
+  return (
+    <div>
+      <h1>{hero.superhero}</h1>
+    </div>
+  );
+};
