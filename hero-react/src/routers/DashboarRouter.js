@@ -17,11 +17,10 @@ export const DashboarRouter = () => {
           <Route path="dc" element={<DcScreen />} />
           <Route path="search" element={<SearchScreen />} />
           <Route path="hero/:heroId" element={<HeroScreen />} />
-          <Route path="" element={< MarvelScreen/>} />
+          <Route path="" element={<MarvelScreen />} />
           <Route path="error" element={<NotFountScreen />} />
-          
         </Routes>
-      </div> 
+      </div>
     </>
   );
 };

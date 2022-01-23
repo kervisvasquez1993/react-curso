@@ -1,9 +1,15 @@
-import React, { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useContext, useMemo } from "react";
+import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../auth/authContext";
-import { DashboarRouter } from "./DashboarRouter";
 
 export const PrivateRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
-  return user.logged ? <DashboarRouter /> : <Navigate to="/login" />;
+  const { pathname, search } = useLocation();
+  const path = `${pathname}${search}`;
+  useMemo(
+    () => localStorage.setItem("pathHistory", JSON.stringify(path)),
+    [path]
+  );
+
+  return user.logged ? children : <Navigate to="login" />;
 };

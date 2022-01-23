@@ -14,8 +14,8 @@ export const LoginScreen = () => {
       payload: { name: "kervis vasquez" },
     };
     dispatch(action);
-
-    navigator("/", { replace: true });
+    const search = JSON.parse(localStorage.getItem("pathHistory")) || "/";
+    navigator(search, { replace: true });
   };
 
   return (
