@@ -77,3 +77,4 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
 };
 
 export default Modal;
+// bases
