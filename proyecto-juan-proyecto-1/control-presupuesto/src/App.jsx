@@ -3,6 +3,7 @@ import Header from "./componets/Header";
 import Modal from "./componets/Modal";
 import IconoNuevoGasto from "./img/nuevo-gasto.svg";
 import { generarId } from "./helpers";
+import ListadoGastodo from "./componets/ListadoGastodo";
 
 function App() {
   const [presupuesto, setPresupuesto] = useState(0);
@@ -19,9 +20,8 @@ function App() {
 
   const guardarGastos = (gasto) => {
     gasto.id = generarId();
+    gasto.fecha = Date.now();
     setGastos([...gastos, gasto]);
-    console.log(gastos);
-    console.log(gasto);
   };
 
   return (
@@ -34,13 +34,18 @@ function App() {
       />
 
       {isValidation && (
-        <div className="nuevo-gasto">
-          <img
-            src={IconoNuevoGasto}
-            alt="gasto agregar"
-            onClick={handleNuevoGasto}
-          />
-        </div>
+        <>
+          <main>
+            <ListadoGastodo gastos={gastos} />
+          </main>
+          <div className="nuevo-gasto">
+            <img
+              src={IconoNuevoGasto}
+              alt="gasto agregar"
+              onClick={handleNuevoGasto}
+            />
+          </div>
+        </>
       )}
 
       {modal && (
