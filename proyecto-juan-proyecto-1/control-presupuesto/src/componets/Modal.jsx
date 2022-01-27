@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "../hooks/useForm";
 import BorrarBtn from "../img/cerrar.svg";
+import Mensaje from "./Mensaje";
 
-const Modal = ({ setModal, animarModal, setAnimarModal }) => {
-  const [values, handleInputChange] = useForm({
+const Modal = ({ setModal, animarModal, setAnimarModal, guardarGastos }) => {
+  const [mensaje, setMensaje] = useState("");
+  const [tipo, setTipo] = useState("");
+  const [values, handleInputChange, reset] = useForm({
     nombre: "",
     cantidad: "",
     categoria: "",
   });
 
   const { nombre, cantidad, categoria } = values;
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if ([nombre, cantidad, categoria].includes("")) {
+      let nombreValidate = `${nombre.length <= 0 ? "'NOMBRE'," : ""}`,
+        cantidadValidacion = `${cantidad.length <= 0 ? "'CANTIDAD'," : ""}`,
+        cateogiraValidacion = `${categoria.length <= 0 ? "'CATEGORIA'" : ""}`;
+      let dangerMensaje = `Campos ${nombreValidate}${cantidadValidacion}${cateogiraValidacion} son requeridos`;
+      setMensaje(dangerMensaje);
+      setTipo("error");
+      
+
+      return;
+    }
+
+    setMensaje("Formulario enviado");
+    setTipo("success");
+    reset();
+    setTimeout(() => {
+      setMensaje("");
+      setTipo("");
+    }, 1500);
+
+    guardarGastos({nombre,cantidad, categoria})
+  };
 
   const ocultarModal = () => {
     setAnimarModal(false);
@@ -27,8 +55,10 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
       <form
         className={`formulario ${animarModal ? "animar" : "cerrar"}`}
         action=""
+        onSubmit={handleSubmit}
       >
         <legend> Nuevo Gasto</legend>
+        <Mensaje tipo={tipo}>{mensaje}</Mensaje>
         <div className="campo">
           <label htmlFor="nombre">Nombre de Gasto</label>
           <input
