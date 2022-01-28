@@ -2,7 +2,7 @@ import { useState } from "react";
 import Header from "./componets/Header";
 import Modal from "./componets/Modal";
 import IconoNuevoGasto from "./img/nuevo-gasto.svg";
-import { generarId } from "./helpers";
+import { generarId, formatearFecha } from "./helpers";
 import ListadoGastodo from "./componets/ListadoGastodo";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 
   const guardarGastos = (gasto) => {
     gasto.id = generarId();
-    gasto.fecha = Date.now();
+    gasto.fecha = formatearFecha();
     setGastos([...gastos, gasto]);
   };
 
