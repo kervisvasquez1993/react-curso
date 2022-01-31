@@ -7,7 +7,7 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
   // arr.reduce(callback(acumulador, valorActual[, índice[, array]])[, valorInicial])
   useEffect(() => {
     const totalGastado = gastos.reduce(
-      (acumulado, gasto) => gasto.cantidad + acumulado, 
+      (acumulado, gasto) => Number(gasto.cantidad) + Number(acumulado), 
       0
     );
     console.log(totalGastado);
